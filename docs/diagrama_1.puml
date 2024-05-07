@@ -1,14 +1,104 @@
-@startuml
-class User {
-    - username: str
-    - email: str
-    - password: str
+@startuml Diagram de Clases
+class Model {
+ clase de SQLAlchemy
 }
 
-class Role {
-    - name: str
+class Incubadora {
+    - num_incubadora: int
+    - modelo: str 
+    - descripcion: str
+}
+
+class Nacedora {
+    - num_nacedora: int
+    - modelo: str 
+    - descripcion: str
+}
+
+class Datos_incubadora {
+    - id: int 
+    - incubadora_asignada: int
+    - dias: datetime 
+    - fecha_entrada: datetime 
+    - fecha_salida: datetime 
+    - fertilidad: int 
+    - tipo_gallina_1: int 
+    - tipo_gallina_2: int 
+    - tipo_gallina_3: int 
+}
+
+class Datos_nacedora {
+    - id: int 
+    - nacedora_asignada: int
+    - dias: datetime 
+    - fecha_entrada: datetime 
+    - fecha_salida: datetime 
+    - fertilidad: int 
+    - tipo_gallina_1: int 
+    - tipo_gallina_2: int 
+    - tipo_gallina_3: int 
+}
+
+class Datos_sensores_incubadora{
+    - id: int 
+    - motor_volteado: str 
+    - ventilacion: str 
+    - temperatura: int 
+    - humedad: int 
+    - resistencia: str 
+}
+
+class Datos_sensores_nacedoras{
+    - id: int 
+    - ventilacion: str 
+    - temperatura: int 
+    - humedad: int 
+    - resistencia: str 
+}
+
+class Sensores_humedad {
+    - num_sensor: str
     - description: str
 }
 
-User -- Role
+class Sensores_motores {
+    - num_sensor: str
+    - description: str
+}
+
+class Sensores_resistencia {
+    - num_sensor: str
+    - description: str
+}
+
+class Sensores_temperatura {
+    - num_sensor: str
+    - description: str
+}
+
+class Sensores_ventilacion {
+    - num_sensor: str
+    - description: str
+}
+
+Model <|-- Incubadora
+Datos_incubadora "1" *-- "1" Incubadora
+Model <|-- Datos_incubadora
+Datos_sensores_incubadora "1" *-- "1" Incubadora
+Incubadora "1" o--o "n" Sensores_humedad
+Incubadora "1" o--o "n" Sensores_motores
+Incubadora "1" o--o "n" Sensores_resistencia
+Incubadora "1" o--o "n" Sensores_temperatura
+Incubadora "1" o--o "n" Sensores_ventilacion
+
+
+Model <|-- Nacedora
+Datos_nacedora "1" *-- "1" Nacedora
+Model <|-- Datos_nacedora
+Datos_sensores_nacedoras "1" *-- "1" Nacedora
+Nacedora "1" o--o "n" Sensores_humedad
+Nacedora "1" o--o "n" Sensores_resistencia
+Nacedora "1" o--o "n" Sensores_temperatura
+Nacedora "1" o--o "n" Sensores_ventilacion
+
 @enduml
