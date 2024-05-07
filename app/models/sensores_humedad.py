@@ -7,4 +7,4 @@ class Sensores_humedad(db.Model):
     
     num_sensor: int = db.column(db.Integrer, primary_key=True)
     descripcion: str = db.column(db.String, nullable=True)
-    # agregar entrada de sensor
+    # agregar entrada de sensor y como asignarla a incubadora o nacedora
