@@ -56,27 +56,27 @@ class Datos_sensores_nacedora{
     - resistencia: str 
 }
 
-class Sensores_humedad {
+class Sensor_humedad {
     - num_sensor: str
     - description: str
 }
 
-class Sensores_motores {
+class Sensor_motores {
     - num_sensor: str
     - description: str
 }
 
-class Sensores_resistencia {
+class Sensor_resistencia {
     - num_sensor: str
     - description: str
 }
 
-class Sensores_temperatura {
+class Sensor_temperatura {
     - num_sensor: str
     - description: str
 }
 
-class Sensores_ventilacion {
+class Sensor_ventilacion {
     - num_sensor: str
     - description: str
 }
@@ -85,20 +85,20 @@ Model <|-- Incubadora
 Datos_incubadora "1" *-- "1" Incubadora
 Model <|-- Datos_incubadora
 Datos_sensores_incubadora "1" *-- "1" Incubadora
-Datos_sensores_incubadora "1" o--o "n" Sensores_humedad
-Datos_sensores_incubadora "1" o--o "n" Sensores_motores
-Datos_sensores_incubadora "1" o--o "n" Sensores_resistencia
-Datos_sensores_incubadora "1" o--o "n" Sensores_temperatura
-Datos_sensores_incubadora "1" o--o "n" Sensores_ventilacion
+Datos_sensores_incubadora "1" o--o "n" Sensor_humedad
+Datos_sensores_incubadora "1" o--o "n" Sensor_motores
+Datos_sensores_incubadora "1" o--o "n" Sensor_resistencia
+Datos_sensores_incubadora "1" o--o "n" Sensor_temperatura
+Datos_sensores_incubadora "1" o--o "n" Sensor_ventilacion
 
 
 Model <|-- Nacedora
 Datos_nacedora "1" *-- "1" Nacedora
 Model <|-- Datos_nacedora
 Datos_sensores_nacedora "1" *-- "1" Nacedora
-Datos_sensores_nacedora "1" o--o "n" Sensores_humedad
-Datos_sensores_nacedora "1" o--o "n" Sensores_resistencia
-Datos_sensores_nacedora "1" o--o "n" Sensores_temperatura
-Datos_sensores_nacedora "1" o--o "n" Sensores_ventilacion
+Datos_sensores_nacedora "1" o--o "n" Sensor_humedad
+Datos_sensores_nacedora "1" o--o "n" Sensor_resistencia
+Datos_sensores_nacedora "1" o--o "n" Sensor_temperatura
+Datos_sensores_nacedora "1" o--o "n" Sensor_ventilacion
 
 @enduml
