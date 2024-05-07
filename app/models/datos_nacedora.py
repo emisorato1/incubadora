@@ -3,8 +3,8 @@ from dataclasses import dataclass
 from datetime import datetime
 
 @dataclass
-class Datos_nacedoras(db.Model):
-    __tablename__= 'datos_nacedoras'
+class Datos_nacedora(db.Model):
+    __tablename__= 'datos_nacedora'
     
     id: int = db.column(db.Integrer, primary_key=True, autoincrement=True)
     nacedora_asignada: int
