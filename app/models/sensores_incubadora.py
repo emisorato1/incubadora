@@ -2,7 +2,7 @@ from app import db
 from dataclasses import dateclass
 
 @dateclass
-class Sensores(db.Model):
+class Sensores_incubadora(db.Model):
     __tablename__= 'sensores_incubadora'
     
     id: int = db.column(db.Integrer, primary_key=True)

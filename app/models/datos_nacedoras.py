@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 @dataclass
-class Incubadora(db.Model):
+class Datos_nacedoras(db.Model):
     __tablename__= 'datos_nacedoras'
     
     id: int = db.column(db.Integrer, primary_key=True, autoincrement=True)
