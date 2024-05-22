@@ -11,6 +11,10 @@ class User(db.Model):
     password: str = db.Column(db.String(120), nullable=False)
     role: str = db.Column(db.String, nullable=True)
     
+    # Definición de la relación "uno a muchos" con proceso    
+    proceso_id = db.Column('proceso_id', db.Integrer, db.Foreignkey('proceso.id'))
+    procesos = db.relationship('Proceso', back_populate='user')
+    
     def __repr__(self):
         return '<User %r>' % self.user_name
         

@@ -52,7 +52,7 @@ class Sensores {
 
 Model <|-- User
 Model <|-- Proceso
-User <|-- Proceso
+User "1" o--o "n" Proceso
 
 Proceso "1" o--o "1" Incubadora
 Incubadora "m" o--o "n" Sensores
