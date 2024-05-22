@@ -3,102 +3,61 @@ class Model {
  clase de SQLAlchemy
 }
 
+class User {
+    id: int "PK"
+    user_name: int
+    password: str 
+    role: str
+}
+
+class Proceso {
+    id: int "PK"
+    incubadora_asignada: int #"FK"id_incubadora
+    fecha_entrada_inc: datetime 
+    ent_araucana: int
+    ent_camperos: int 
+    ent_belichas: int 
+    fecha_salida_inc: datetime 
+    fert_araucanas: int 
+    fert_camperos: int 
+    fert_belichas: int 
+    nacedora_asignada: int #"FK" id_nacedora
+    fecha_entrada_nac: datetime 
+    fecha_salida_nac: datetime
+    nac_araucana: int 
+    nac_camperos: int 
+    nac_belichas: int 
+    detalles: str 
+
+}
+
 class Incubadora {
-    - num_incubadora: int
-    - modelo: str 
-    - descripcion: str
+    num_incubadora: int "PK"
+    modelo: str 
+    descripcion: str
 }
 
 class Nacedora {
-    - num_nacedora: int
-    - modelo: str 
-    - descripcion: str
+    num_nacedora: int "PK"
+    modelo: str 
+    descripcion: str
 }
 
-class Datos_incubadora {
-    - id: int 
-    - incubadora_asignada: int
-    - dias: datetime 
-    - fecha_entrada: datetime 
-    - fecha_salida: datetime 
-    - fertilidad: int 
-    - tipo_gallina_1: int 
-    - tipo_gallina_2: int 
-    - tipo_gallina_3: int 
+class Sensores {
+    num_sensor: str "PK"
+    tipo_sensor: str
+    asignacion: int
+    description: str
 }
 
-class Datos_nacedora {
-    - id: int 
-    - nacedora_asignada: int
-    - dias: datetime 
-    - fecha_entrada: datetime 
-    - fecha_salida: datetime 
-    - fertilidad: int 
-    - tipo_gallina_1: int 
-    - tipo_gallina_2: int 
-    - tipo_gallina_3: int 
-}
+Model <|-- User
+Model <|-- Proceso
+User <|-- Proceso
 
-class Datos_sensores_incubadora{
-    - id: int 
-    - motor_volteado: str 
-    - ventilacion: str 
-    - temperatura: int 
-    - humedad: int 
-    - resistencia: str 
-}
+Proceso "1" o--o "1" Incubadora
+Incubadora "m" o--o "n" Sensores
 
-class Datos_sensores_nacedora{
-    - id: int 
-    - ventilacion: str 
-    - temperatura: int 
-    - humedad: int 
-    - resistencia: str 
-}
-
-class Sensor_humedad {
-    - num_sensor: str
-    - description: str
-}
-
-class Sensor_motores {
-    - num_sensor: str
-    - description: str
-}
-
-class Sensor_resistencia {
-    - num_sensor: str
-    - description: str
-}
-
-class Sensor_temperatura {
-    - num_sensor: str
-    - description: str
-}
-
-class Sensor_ventilacion {
-    - num_sensor: str
-    - description: str
-}
-
-Model <|-- Incubadora
-Datos_incubadora "1" *-- "1" Incubadora
-Model <|-- Datos_incubadora
-Datos_sensores_incubadora "1" *-- "1" Incubadora
-Datos_sensores_incubadora "1" o--o "n" Sensor_humedad
-Datos_sensores_incubadora "1" o--o "n" Sensor_motores
-Datos_sensores_incubadora "1" o--o "n" Sensor_resistencia
-Datos_sensores_incubadora "1" o--o "n" Sensor_temperatura
-Datos_sensores_incubadora "1" o--o "n" Sensor_ventilacion
-
-
-Model <|-- Nacedora
-Datos_nacedora "1" *-- "1" Nacedora
-Model <|-- Datos_nacedora
-Datos_sensores_nacedora "1" *-- "1" Nacedora
-Datos_sensores_nacedora "1" o--o "n" Sensor_humedad
-Datos_sensores_nacedora "1" o--o "n" Sensor_resistencia
-Datos_sensores_nacedora "1" o--o "n" Sensor_temperatura
-Datos_sensores_nacedora "1" o--o "n" Sensor_ventilacion
+Proceso "1" o--o "1" Nacedora
+Nacedora "m" o--o "n" Sensores
 
 @enduml

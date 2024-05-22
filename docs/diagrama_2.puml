@@ -1,0 +1,55 @@
+@startuml Diagram de Clases
+class Model {
+ clase de SQLAlchemy
+}
+
+class Usuario {
+    - nombre: int
+    - contraseña: str 
+}
+
+class Incubadora {
+    - num_incubadora: int
+    - modelo: str 
+    - descripcion: str
+}
+
+class Nacedora {
+    - num_nacedora: int
+    - modelo: str 
+    - descripcion: str
+}
+
+class Datos_proceso {
+    - id: int 
+    - araucana: int 
+    - camperos: int 
+    - belichas: int 
+    - fecha_carga_huevos: datetime 
+    - fecha_nacimiento_huevos: datetime
+    - incubadora_asignada: int
+    - fertilidad: int 
+    - nacedora_asignada: int
+    - nacimientos: int
+    - total_dias: datetime 
+    - detalles: str
+}
+
+class Sensor {
+    - num_sensor: str
+    - tipo_sensor: str
+    - description: str
+}
+
+
+Model <|-- Usuario
+
+Usuario "1" o--o "n" Incubadora
+Datos_proceso "1" *-- "1" Incubadora
+Model <|-- Datos_proceso
+Incubadora "1" o--o "n" Sensor
+Usuario "1" o--o "n" Nacedora
+Datos_proceso "1" *-- "1" Nacedora
+Nacedora "1" o--o "n" Sensor
+
+@enduml
