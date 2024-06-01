@@ -16,5 +16,5 @@ class User(db.Model):
     procesos = db.relationship('Proceso', back_populate='user')
     
     def __repr__(self):
-        return '<User %r>' % self.user_name
+        return f'<User self.user_name>'
         
