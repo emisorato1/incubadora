@@ -36,12 +36,15 @@ Muchos Sensores están asociados con cada proceso de incubación y nacimiento.
 Instalacion de postgres en docker por consola
 
 1- Este comando crea la base de datos con los datos que le demos
- docker run --name my_postgres -e POSTGRES_USER=cardozo -e POSTGRES_PASSWORD=12345 -e POSTGRES_DB=db_inta -d postgres:15.4-bullseye
- -d: sirve para que podamos cerrar la consola para no tenerla abierta
+ docker run --name my_postgres -e POSTGRES_USER=cardozo -e POSTGRES_PASSWORD=12345 -e POSTGRES_DB=db_inta -p 5432:5432 -d postgres:15.6
+ -d: sirve para que podamos cerrar la consola (ejecutar en segundo plano)
+ -p 5432:5432: Mapea el puerto 5432 del contenedor al puerto 5432 del host (localhost). Esto permite que puedas 
+                conectarte a PostgreSQL desde tu máquina local
  Comando para ver si esta en proceso la base de datos: docker ps -a
  Comando para parar la db: docker stop name(nombre que le asignamos como proceso "my_postgres")
  Comando para poder eliminar la db: docker rm name(nombre que le asignamos como proceso "my_postgres") 
  Comando para verifica los logs del contenedor: docker logs my_postgres
  Comando para habilitar la apertura de la base de datos en la consola: docker exec -it my_postgres bash
  Comando para abrir la base de datos en la consola: psql -U cardozo --db db_inta --password
+ Comando para ver las tablas y relaciones que hay: \d
 

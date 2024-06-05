@@ -15,6 +15,6 @@ class User(db.Model):
     proceso_id = db.Column('proceso_id', db.Integrer, db.Foreignkey('proceso.id'))
     procesos = db.relationship('Proceso', back_populate='user')
     
-    def __repr__(self):
+    def __init__(self):
         return f'<User self.user_name>'
         
