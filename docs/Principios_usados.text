@@ -55,7 +55,6 @@ Mantenibilidad: Los cambios en una responsabilidad no afectan a otras, facilitan
 Ejemplo: Si tienes una clase Usuario, no debe manejar la lógica de autenticación y la lógica de reportes. En su lugar, 
 crea una clase Autenticacion y una clase Reporte.
 
---------------------------------------------------------------------------------------------------------------------------------
 
 O - Open/Closed Principle (OCP)
 Principio:
@@ -68,7 +67,6 @@ Estabilidad: Minimiza el riesgo de introducir errores en el código existente.
 Ejemplo: Si necesitas agregar un nuevo tipo de informe, puedes crear una nueva clase que extienda una clase base Informe, 
 en lugar de modificar la clase existente.
 
---------------------------------------------------------------------------------------------------------------------------------
 
 L - Liskov Substitution Principle (LSP)
 Principio:
@@ -82,7 +80,6 @@ Consistencia: Las subclases deben respetar el contrato establecido por la clase 
 Ejemplo: Si tienes una clase base Animal con un método hacerSonido(), todas las subclases como Perro y Gato deben 
 implementar hacerSonido() de manera coherente.
 
---------------------------------------------------------------------------------------------------------------------------------
 
 I - Interface Segregation Principle (ISP)
 Principio:
@@ -95,7 +92,6 @@ Flexibilidad: Permite a los clientes usar solo lo que necesitan.
 Ejemplo: En lugar de tener una interfaz Vehiculo con métodos acelerar, frenar, volar, crea interfaces más específicas 
 como VehiculoTerrestre con acelerar y frenar, y VehiculoAereo con volar.
 
---------------------------------------------------------------------------------------------------------------------------------
 
 D - Dependency Inversion Principle (DIP)
 Principio:
