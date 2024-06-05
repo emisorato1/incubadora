@@ -48,3 +48,9 @@ Instalacion de postgres en docker por consola
  Comando para ver las tablas y relaciones que hay: \d
 
 
+
+
+
+
+
+
