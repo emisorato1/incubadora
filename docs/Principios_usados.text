@@ -1,0 +1,111 @@
+1. DRY (Don't Repeat Yourself)
+Principio:
+El principio DRY sugiere que cada pieza de conocimiento debe tener una única, inequívoca y autoritativa representación 
+dentro de un sistema.
+
+Aplicación:
+
+Código Reutilizable: Evita duplicar el código en diferentes partes del programa. Si una lógica es necesaria en 
+varios lugares, encapsúlala en una función o módulo reutilizable.
+Mantenibilidad: Facilita la actualización del código. Si una parte del código necesita cambios, hacerlo en un 
+solo lugar es más fácil y menos propenso a errores.
+Ejemplo: Si tienes una función que calcula el IVA en varias partes de tu aplicación, en lugar de escribir la 
+fórmula en cada lugar, crea una función calcularIVA y llámala donde sea necesario.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+2. KISS (Keep It Simple, Stupid)
+Principio:
+El principio KISS sugiere que los sistemas deben mantenerse simples y que la complejidad innecesaria debe ser evitada.
+
+Aplicación:
+
+Simplicidad: Diseña y escribe código de la manera más simple posible.
+Legibilidad: Facilita que otros desarrolladores (y tú mismo en el futuro) puedan entender y mantener el código.
+Ejemplo: Si puedes resolver un problema con una solución simple, no lo compliques con patrones de diseño avanzados o 
+técnicas innecesarias.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+3. YAGNI (You Aren't Gonna Need It)
+Principio:
+YAGNI sugiere que no deberías añadir funcionalidad a tu código hasta que realmente la necesites.
+
+Aplicación:
+
+Foco en lo Necesario: Concéntrate en los requerimientos actuales y no en posibles necesidades futuras que pueden no surgir.
+Evitar Desperdicio: Evita el sobreesfuerzo y el código innecesario, lo que reduce la complejidad y el mantenimiento.
+Ejemplo: Si estás desarrollando una aplicación de notas y alguien sugiere añadir una función para exportar a PDF, no 
+implementes esa función hasta que haya una necesidad clara y específica para ello.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+4. SOLID
+SOLID es un acrónimo que representa cinco principios fundamentales de la programación orientada a objetos y diseño de 
+software que promueven la creación de sistemas más comprensibles, flexibles y mantenibles.
+
+S - Single Responsibility Principle (SRP)
+Principio:
+Una clase debe tener una, y solo una, razón para cambiar, lo que significa que debe tener una sola responsabilidad o propósito.
+
+Aplicación:
+
+Cohesión: Cada clase tiene una única tarea o responsabilidad.
+Mantenibilidad: Los cambios en una responsabilidad no afectan a otras, facilitando las modificaciones.
+Ejemplo: Si tienes una clase Usuario, no debe manejar la lógica de autenticación y la lógica de reportes. En su lugar, 
+crea una clase Autenticacion y una clase Reporte.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+O - Open/Closed Principle (OCP)
+Principio:
+El software debe estar abierto para extensión pero cerrado para modificación.
+
+Aplicación:
+
+Extensibilidad: Puedes añadir nuevas funcionalidades sin cambiar el código existente.
+Estabilidad: Minimiza el riesgo de introducir errores en el código existente.
+Ejemplo: Si necesitas agregar un nuevo tipo de informe, puedes crear una nueva clase que extienda una clase base Informe, 
+en lugar de modificar la clase existente.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+L - Liskov Substitution Principle (LSP)
+Principio:
+Los objetos de una clase derivada deben poder sustituir a los objetos de la clase base sin alterar el funcionamiento del 
+programa.
+
+Aplicación:
+
+Intercambiabilidad: Las subclases deben ser intercambiables con sus clases base.
+Consistencia: Las subclases deben respetar el contrato establecido por la clase base.
+Ejemplo: Si tienes una clase base Animal con un método hacerSonido(), todas las subclases como Perro y Gato deben 
+implementar hacerSonido() de manera coherente.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+I - Interface Segregation Principle (ISP)
+Principio:
+Los clientes no deben verse obligados a depender de interfaces que no utilizan.
+
+Aplicación:
+
+Especialización: Las interfaces deben ser específicas y limitadas a un conjunto de métodos relacionados.
+Flexibilidad: Permite a los clientes usar solo lo que necesitan.
+Ejemplo: En lugar de tener una interfaz Vehiculo con métodos acelerar, frenar, volar, crea interfaces más específicas 
+como VehiculoTerrestre con acelerar y frenar, y VehiculoAereo con volar.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+D - Dependency Inversion Principle (DIP)
+Principio:
+Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones. 
+Las abstracciones no deben depender de los detalles. Los detalles deben depender de las abstracciones.
+
+Aplicación:
+
+Desacoplamiento: Promueve el uso de interfaces o abstracciones en lugar de dependencias directas.
+Flexibilidad: Facilita el cambio y la prueba de los módulos de forma aislada.
+Ejemplo: En lugar de que una clase Controlador dependa directamente de una clase RepositorioMySQL, debería depender 
+de una interfaz Repositorio que pueda ser implementada por RepositorioMySQL o RepositorioPostgreSQL.
+Estos principios, cuando se aplican correctamente, pueden ayudarte a escribir código más limpio, modular y fácil de mantener.
