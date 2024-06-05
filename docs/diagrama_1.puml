@@ -8,6 +8,7 @@ class User {
     user_name: int
     password: str 
     role: str
+    procesos_id: int #"FK"id_proceso
 }
 
 class Proceso {

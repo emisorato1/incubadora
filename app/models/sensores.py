@@ -9,3 +9,5 @@ class Sensores(db.Model):
     tipo_sensor: str = db.column(db.String, nullable=True)
     medicion: str = db.column(db.String, nullable=True)
     descripcion: str = db.column(db.String, nullable=True)
+
+    
