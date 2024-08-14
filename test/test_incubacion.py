@@ -86,7 +86,11 @@ class IncubacionTestCase(unittest.TestCase):
         self.assertEqual(incubacion_find.id, incubacion.id)
         self.assertEqual(incubacion_find.fecha_entrada, incubacion.fecha_entrada)
     
-    
+    def __get_incubacion(self):
+        return Incubacion(
+            fecha_entrada = self.fecha_entrada,
+            fecha_entrada = self.fecha_entrada
+        )
 # Ejecutamos las pruebas si este script se ejecuta directamente
 if __name__ == '__main__':
     unittest.main()

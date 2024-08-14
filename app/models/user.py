@@ -2,7 +2,7 @@ from app import db
 from dataclasses import dataclass
 from typing import List
 
-@dataclass
+@dataclass(init=False, repr=True, eq=True)
 class User(db.Model):
     __tablename__= 'user'
     
@@ -16,5 +16,3 @@ class User(db.Model):
         self.password = password
         self.role = role
     
-    
-        

@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 
-@dataclass
+@dataclass(init=False, repr=True, eq=True)
 class Nacimiento(db.Model):
     __tablename__= 'nacimiento'
     
@@ -12,11 +12,11 @@ class Nacimiento(db.Model):
     fecha_salida_inc: datetime = db.Column(db.DateTime, nullable=False)
     
     # Definición de la relación "uno a muchos" con User    
-    user_id = db.Column('user_id', db.Integer, db.Foreignkey('user.id'))
+    user_id = db.Column('user_id', db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User', back_populates='proceso')
     
     # Definición de la relación "uno a muchos" con incubadora
-    nacedora_id = db.Column('nacedora_id', db.Integer, db.Foreignkey('incubadora.id'))
+    nacedora_id = db.Column('nacedora_id', db.Integer, db.ForeignKey('incubadora.id'), nullable=False)
     nacedora = db.relationship('Nacedora', back_populates='nacimiento')
     
     def __init__(self, fecha_entrada: datetime = None, fecha_salida: datetime = None, user: int = None, nacedora: int = None):

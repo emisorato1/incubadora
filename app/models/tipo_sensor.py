@@ -1,7 +1,7 @@
 from app import db 
 from dataclasses import dateclass
 
-@dateclass
+@dateclass(init=False, repr=True, eq=True)
 class Tipo_ensor(db.Model):
     __tablename__= 'tipo_sensor'
     

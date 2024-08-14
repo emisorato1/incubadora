@@ -1,2 +1,4 @@
-from repository import Repository_create, Repository_delete, Repository_get, Repository_update
-from user_repository import UserRepository
+from .repository import Repository_create, Repository_delete, Repository_get, Repository_update
+from .user_repository import UserRepository
+from .nacimiento_repository import NacimientoRepository
+from .incubacion_repository import IncubacionRepository

@@ -1,7 +1,7 @@
 from app import db
 from dataclasses import dataclass
 
-@dataclass
+@dataclass(init=False, repr=True, eq=True)
 class Detalles_incubacion(db.Model):
     __tablename__= 'detalles_incubacion'
     
@@ -10,11 +10,11 @@ class Detalles_incubacion(db.Model):
     cant_huevos_final: int = db.Column(db.Integer, nullable=False) 
 
     # Definición de la relación "uno a muchos" con incubadora    
-    incubacion_id = db.Column('incubacion_id', db.Integer, db.Foreignkey('incubacion.id'))
+    incubacion_id = db.Column('incubacion_id', db.Integer, db.ForeignKey('incubacion.id'), nullable=False)
     incubacion = db.relationship('Incubacion', back_populates='detalles_incubacion')
     
     # Definición de la relación "uno a muchos" con tipo_huevo    
-    tipo_huevo_id = db.Column('tipo_huevo_id', db.Integer, db.Foreignkey('tipo_huevo.id'))
+    tipo_huevo_id = db.Column('tipo_huevo_id', db.Integer, db.ForeignKey('tipo_huevo.id'), nullable=False)
     tipo_huevo = db.relationship('Tipo_huevo', back_populates='detalles_incubacion')
     
     def __init__(self, cant_huevos_inicial: int = None, cant_huevos_final: int = None, incubacion: int = None, tipo_huevo: int = None):

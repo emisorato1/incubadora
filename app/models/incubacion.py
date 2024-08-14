@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import List
 
 
-@dataclass
+@dataclass(init=False, repr=True, eq=True)
 class Incubacion(db.Model):
     __tablename__= 'incubacion'
     
@@ -13,11 +13,11 @@ class Incubacion(db.Model):
     fecha_salida: datetime = db.Column(db.DateTime, nullable=False)
     
     # Definición de la relación "uno a muchos" con User    
-    user_id = db.Column('user_id', db.Integer, db.Foreignkey('user.id'))
+    user_id = db.Column('user_id', db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User', back_populates='incubacion')
     
     # Definición de la relación "uno a muchos" con incubadora    
-    incubadora_id = db.Column('incubadora_id', db.Integer, db.Foreignkey('incubadora.id'))
+    incubadora_id = db.Column('incubadora_id', db.Integer, db.ForeignKey('incubadora.id'), nullable=False)
     incubadora = db.relationship('Incubadora', back_populates='incubacion')
     
     def __init__(self, fecha_entrada: datetime = None, fecha_salida: datetime = None, user: int = None, incubadora: int = None):

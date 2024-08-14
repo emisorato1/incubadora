@@ -98,7 +98,7 @@ Model <|-- Datos_sensores_nacedora
 User "1" o--o "N" Incubacion
 Incubadora "1" o--o "N" Incubacion
 Incubacion "1" o--o "N" Detalle_incubacion
-Incubacion "1" o--o "N" Datos_sensores_inbadora
+Incubacion "1" o--o "N" Datos_sensores_incubadora
 Tipo_huevo "1" o--o "N" Detalle_incubacion 
 Tipo_sensor "1" o--o "N" Datos_sensores_inbadora
 

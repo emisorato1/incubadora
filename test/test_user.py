@@ -4,7 +4,7 @@ import unittest
 from flask import current_app
 from app import create_app, db
 from app.models.user import User
-from app.services import UserService
+from app.services.user_services import UserService
 
 user_service = UserService()
 
@@ -19,8 +19,6 @@ class UserTestCase(unittest.TestCase):
     # Configuramos el entorno de prueba
     def setUp(self):
         
-        os.environ['FLASK_CONTEXT'] = 'testing'
-
         # Creamos la aplicación y el contexto de la aplicación para pruebas
         self.app = create_app()
         self.app_context = self.app.app_context()
@@ -55,7 +53,7 @@ class UserTestCase(unittest.TestCase):
     def test_user_save(self):
     
         user = self.__get_user()
-        user_service.save(user)
+        user_service.create(user)
 
         self.assertGreaterEqual(user.id, 1)
         self.assertEqual(user.user_name, self.user_name_prueba)
@@ -66,7 +64,7 @@ class UserTestCase(unittest.TestCase):
     def test_user_delete(self):
         
         user = self.__get_user()
-        user_service.save(user)
+        user_service.create(user)
 
         # Borrar el usuario
         user_service.delete(user.id)
@@ -76,18 +74,18 @@ class UserTestCase(unittest.TestCase):
     def test_user_all(self):
     
         user = self.__get_user()
-        user_service.save(user)
+        user_service.create(user)
 
-        users = user_service.all()
+        users = user_service.create()
         self.assertGreaterEqual(len(users), 1)
     
     # Prueba para verificar que se puede encontrar un usuario por su ID
     def test_user_find(self):
     
         user = self.__get_user()
-        user_service.save(user)
+        user_service.create(user)
 
-        user_find = user_service.find(1)
+        user_find = user_service.get_by_id(1)
         self.assertIsNotNone(user_find)
         self.assertEqual(user_find.id, user.id)
         self.assertEqual(user_find.role, user.role)
@@ -96,6 +94,7 @@ class UserTestCase(unittest.TestCase):
         user = User()
         user.user_name = self.user_name_prueba
         user.password = self.password_prueba
+        user.role = self.role_prueba
         return user
 
 # Ejecutamos las pruebas si este script se ejecuta directamente
