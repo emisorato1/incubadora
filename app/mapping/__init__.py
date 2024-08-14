@@ -1,0 +1,7 @@
+from user_schema import UserSchema
+from incubacion_schema import IncubacionSchema
+from nacimiento_schema import NacimientoSchema
+from detalles_incubacion_schema import Detalle_incubacionSchema
+from detalles_nacimiento_schema import Detalle_nacimientoSchema
+from datos_sensores_incubadora_schema import Datos_sensores_incubadoraSchema
+from datos_sensores_nacedora_schema import Datos_sensores_nacedoraSchema

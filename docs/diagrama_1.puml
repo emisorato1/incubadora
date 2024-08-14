@@ -3,62 +3,110 @@ class Model {
  clase de SQLAlchemy
 }
 
-class User {
+Class User {
     id: int "PK"
     user_name: int
     password: str 
     role: str
-    procesos_id: int #"FK"id_proceso
 }
 
-class Proceso {
+Class Incubacion {
     id: int "PK"
-    incubadora_asignada: int #"FK"id_incubadora
-    fecha_entrada_inc: datetime 
-    ent_araucana: int
-    ent_camperos: int 
-    ent_belichas: int 
-    fecha_salida_inc: datetime 
-    fert_araucanas: int 
-    fert_camperos: int 
-    fert_belichas: int 
-    nacedora_asignada: int #"FK" id_nacedora
-    fecha_entrada_nac: datetime 
-    fecha_salida_nac: datetime
-    nac_araucana: int 
-    nac_camperos: int 
-    nac_belichas: int 
+    fecha_entrada: datetime 
+    fecha_salida: datetime 
     detalles: str 
-
+    user_id: int "FK"
+    incubadora_id: int #"FK"id_incubadora
 }
 
-class Incubadora {
-    num_incubadora: int "PK"
+Class Incubadora {
+    id: int "PK"
     modelo: str 
     descripcion: str
 }
 
-class Nacedora {
-    num_nacedora: int "PK"
+class Detalle_incubacion {
+    id: int "PK"
+    incubacion_id: int "FK"
+    tipo_huevo: str "FK"
+    cant_huevos_inicial: int 
+    cant_huevos_final: int 
+}
+
+Class Datos_sensores_incubadora {
+    id: int "PK"
+    incubacion_id: int "FK"
+    tipo_sensor_id: int "FK"
+    valor: int
+    dia: datetime
+}
+
+Class Tipo_sensor {
+    id: int "PK"
+    tipo_sensor
+}
+
+Class Tipo_huevo {
+    id: int "PK"
+    tipo_huevo: str
+    descripcion: str
+}
+
+Class Nacimiento {
+    id: int "PK"
+    fecha_entrada: datetime 
+    fecha_salida: datetime 
+    detalles: str 
+    user_id: int "FK"
+    nacedora_id: int "FK"
+}
+
+Class Nacedora {
+    id: int "PK"
     modelo: str 
     descripcion: str
 }
 
-class Sensores {
-    num_sensor: str "PK"
-    tipo_sensor: str
-    asignacion: int
-    description: str
+class Detalle_nacimiento {
+    id: int "PK"
+    nacimiento_id: int "FK"
+    tipo_huevo: str "FK"
+    cant_huevos_inicial: int 
+    cant_huevos_final: int 
+}
+
+Class Datos_sensores_nacedora {
+    id: int "PK"
+    nacimiento_id: int "FK"
+    tipo_sensor_id: int "FK"
+    valor: int
+    dia: datetime
 }
 
 Model <|-- User
-Model <|-- Proceso
-User "1" o--o "n" Proceso
+Model <|-- Incubacion
+Model <|-- Incubadora
+Model <|-- Detalle_incubacion
+Model <|-- Datos_sensores_inbadora
+Model <|-- Tipo_sensor
+Model <|-- Tipo_huevo
+Model <|-- Nacimiento
+Model <|-- Nacedora
+Model <|-- Detalle_nacimiento
+Model <|-- Datos_sensores_nacedora
 
-Proceso "1" o--o "1" Incubadora
-Incubadora "m" o--o "n" Sensores
+User "1" o--o "N" Incubacion
+Incubadora "1" o--o "N" Incubacion
+Incubacion "1" o--o "N" Detalle_incubacion
+Incubacion "1" o--o "N" Datos_sensores_inbadora
+Tipo_huevo "1" o--o "N" Detalle_incubacion 
+Tipo_sensor "1" o--o "N" Datos_sensores_inbadora
 
-Proceso "1" o--o "1" Nacedora
-Nacedora "m" o--o "n" Sensores
+User "1" o--o "N" Nacedora
+Nacedora "1" o--o "N" Nacimiento
+Nacimiento "1" o--o "N" Detalle_nacimiento
+Nacimiento "1" o--o "N" Datos_sensores_nacedora
+Tipo_huevo "1" o--o "N" Detalle_nacimiento
+Tipo_sensor "1" o--o "N" Datos_sensores_nacedora
 
 @enduml

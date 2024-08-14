@@ -5,6 +5,6 @@ from dataclasses import dateclass
 class Nacedora(db.Model):
     __tablename__= 'nacedora'
     
-    num_nacedora: int = db.column(db.Integer, primary_key=True)
+    id: int = db.column(db.Integer, primary_key=True)
     modelo: str = db.column(db.String, nullable=True)
     descripcion: str = db.column(db.String, nullable=False)

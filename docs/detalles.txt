@@ -1,34 +1,24 @@
-Proceso de incubacion huevos los cuales se dividen en tres tipos de huevos, 
-pasan por dos procesos el primero de incubación y el segundo de nacedoras. 
+Proceso de incubación huevos en la cual se hace una carga de huevos de los tres tipos de huevos (ej: se 
+hace una carga de 30 huevos de araucanas, 37 huevos de camperos y huevos de 40 belichas), estos pasan por 
+dos procesos consecutivos en primera instancia de incubación y en segunda de nacimiento. 
 
-En el primer proceso de incubación el usuario coloca cierta cantidad de huevos 
-de los tres tipos de gallinas, además de la fecha de inicio de la incubación, y la 
-icubadora utilizada, se coloca en alguna de las 6 incubadoras, donde hay 3 modernas y 
-3 antiguas. Mientras sucede el proceso de incubación de las incubadoras se registra la 
-información de un sensor de motor de volteado, tres sensores de ventilación, un sensor 
-de temperatura, un sensor de humedad y un sensor de la resistencia de evaporación. 
-Al final del proceso el usuario coloca la fecha final, la cantidad de huevos fértiles, y
-a la nacedora a la que se dirige.
+En el primer proceso de incubación el usuario el cual sabemos su nombre, contraseña y rol a cumplir, hace 
+una carga de huevos de los tres tipos araucanas, camperos y belichas, además de la fecha de inicio de la 
+incubación, y la incubadora utilizada en el proceso (hay 6 incubadoras, donde hay 3 modernas y 3 antiguas). 
+Mientras sucede el proceso de incubación el usuario registra la información de los sensores de la incubadora 
+(hay un sensor de motor de volteado, tres sensores de ventilación, un sensor de temperatura, un sensor de 
+humedad y un sensor de la resistencia de evaporación). Al final del proceso el usuario coloca la fecha en 
+que termino la incubación y la cantidad especifica de cada tipo de huevos fértiles que salieron del proceso 
+de incubación que van a pasar al proceso de nacimiento.
 
-En el segundo proceso de nacedoras el usuario coloca cierta cantidad de huevos 
-fértiles de cada una, además de la fecha de inicio de la nacedora y de que incubadora viene, 
-se coloca en alguna de las 4 nacedoras, donde hay 2 modernas y 2 antiguas. Mientras 
-sucede el proceso de incubación de las incubadoras se registra la información de tres 
-sensores de ventilación, un sensor de temperatura, un sensor de humedad y un sensor 
-de la resistencia de evaporación. Al final del proceso el usuario coloca la fecha final 
-del proceso, la cantidad de nacimientos y descate de belichas machos.
-
-Entidades principales:
-Usuario: Persona que realiza el proceso de incubación y nacimiento.
-Incubadora: Dispositivo donde se lleva a cabo el proceso de incubación. Se distinguen entre incubadoras modernas y antiguas.
-Nacedora: Dispositivo donde se lleva a cabo el proceso de nacimiento. También se distinguen entre modernas y antiguas.
-Sensor: Dispositivo que registra información durante el proceso de incubación y nacimiento.
-
-Relaciones:
-Un Usuario puede realizar muchos procesos de incubación y nacimiento.
-Un Incubadora puede ser utilizada en muchos procesos de incubación y nacimiento.
-Un Nacedora puede ser utilizada en muchos procesos de nacimiento.
-Muchos Sensores están asociados con cada proceso de incubación y nacimiento.
+Después del proceso de incubación, los huevos fértiles de araucanas, camperos y belichas que salieron de la 
+incubadora pasan al proceso de nacimiento, especificando la cantidad de cada tipo de huevo que salió fértil, 
+además de la fecha de inicio de la nacedora. El usuario coloca la nacedora que uso para el proceso (hay 4 
+nacedoras, donde hay 2 modernas y 2 antiguas). Mientras sucede el proceso de nacimiento el usuario registra 
+la información de los sensores de la incubadora (hay tres sensores de ventilación, un sensor de temperatura, 
+un sensor de humedad y un sensor de la resistencia de evaporación). Al final del proceso el usuario coloca la 
+fecha final del proceso, la cantidad especifica de cada tipo de huevos que nacieron del proceso de nacimiento 
+y de la cantidad huevos de belichas que nacieron machos y hembras para saber cuántos machos se descartaron.
 
 ---------------------------------------------------------------
 
@@ -46,11 +36,4 @@ Instalacion de postgres en docker por consola
  Comando para habilitar la apertura de la base de datos en la consola: docker exec -it my_postgres bash
  Comando para abrir la base de datos en la consola: psql -U cardozo --db db_inta --password
  Comando para ver las tablas y relaciones que hay: \d
-
-
-
-
-
-
-
 
