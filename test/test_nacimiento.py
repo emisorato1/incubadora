@@ -2,14 +2,14 @@
 import unittest
 from flask import current_app
 from app import create_app, db
-from app.models.incubacion import Incubacion
-from app.services.incubacion_services import IncubacionService
+from app.models.nacimiento import Nacimiento
+from app.services.nacimiento_services import NacimientoService
 from datetime import datetime
 
-incubacion_service = IncubacionService()
+nacimiento_service = NacimientoService()
 
 # Definimos la clase de prueba para el modelo User utilizando unittest
-class IncubacionTestCase(unittest.TestCase):
+class NacimientoTestCase(unittest.TestCase):
     """
     Test User model
     Necesitamos aplicar principios como DRY (Don't Repeat Yourself) y KISS (Keep It Simple, Stupid).
@@ -43,56 +43,54 @@ class IncubacionTestCase(unittest.TestCase):
         self.assertIsNotNone(current_app)
     
     # Prueba para verificar que los atributos del usuario se establecen correctamente
-    def test_incubacion(self):
-        incubacion = self.__get_incubacion()        
-        self.assertEqual(incubacion.fecha_entrada, self.fecha_entrada_prueba)
-        self.assertEqual(incubacion.fecha_salida, self.fecha_salida_prueba)   
+    def test_nacimiento(self):
+        nacimiento = self.__get_nacimiento()        
+        self.assertEqual(nacimiento.fecha_entrada, self.fecha_entrada_prueba)
+        self.assertEqual(nacimiento.fecha_salida, self.fecha_salida_prueba)   
     
     # Prueba para verificar que el usuario se guarda correctamente en la base de datos
-    def test_incubacion_save(self):
-    
-        incubacion = self.__get_incubacion()
-        incubacion_service.create(incubacion)
+    def test_nacimiento_save(self):
+        nacimiento = self.__get_nacimiento()
+        nacimiento_service.create(nacimiento)
 
-        self.assertGreaterEqual(incubacion.id, 1)
-        self.assertEqual(incubacion.fecha_entrada, self.fecha_entrada_prueba)
-        self.assertEqual(incubacion.fecha_salida, self.fecha_salida_prueba)   
+        self.assertGreaterEqual(nacimiento.id, 1)
+        self.assertEqual(nacimiento.fecha_entrada, self.fecha_entrada_prueba)
+        self.assertEqual(nacimiento.fecha_salida, self.fecha_salida_prueba)   
         
     # Prueba para verificar que el usuario se elimina correctamente de la base de datos
-    def test_incubacion_delete(self):
-        
-        incubacion = self.__get_incubacion()
-        incubacion_service.create(incubacion)
+    def test_nacimiento_delete(self):       
+        nacimiento = self.__get_nacimiento()
+        nacimiento_service.create(nacimiento)
 
         # Borrar el usuario
-        incubacion_service.delete(incubacion.id)
-        self.assertIsNone(incubacion_service.get_by_id(1))
+        nacimiento_service.delete(nacimiento.id)
+        self.assertIsNone(nacimiento_service.get_by_id(1))
     
     # Prueba para verificar que se pueden obtener todos los usuarios
-    def test_incubacion_all(self):
+    def test_nacimiento_all(self):
     
-        incubacion = self.__get_incubacion()
-        incubacion_service.create(incubacion)
+        nacimiento = self.__get_nacimiento()
+        nacimiento_service.create(nacimiento)
 
-        incubaciones = incubacion_service.get_all()
-        self.assertGreaterEqual(len(incubaciones), 1)
+        nacimientos = nacimiento_service.get_all()
+        self.assertGreaterEqual(len(nacimientos), 1)
     
     # Prueba para verificar que se puede encontrar un usuario por su ID
-    def test_incubacion_find(self):
+    def test_nacimiento_find(self):
     
-        incubacion = self.__get_incubacion()
-        incubacion_service.create(incubacion)
+        nacimiento = self.__get_nacimiento()
+        nacimiento_service.create(nacimiento)
 
-        incubacion_find = incubacion_service.get_by_id(1)
+        incubacion_find = nacimiento_service.get_by_id(1)
         self.assertIsNotNone(incubacion_find)
-        self.assertEqual(incubacion_find.id, incubacion.id)
-        self.assertEqual(incubacion_find.fecha_entrada, incubacion.fecha_entrada)
+        self.assertEqual(incubacion_find.id, nacimiento.id)
+        self.assertEqual(incubacion_find.fecha_entrada, nacimiento.fecha_entrada)
     
-    def __get_incubacion(self):
-        incubacion = Incubacion()
-        incubacion.fecha_entrada = self.fecha_entrada_prueba
-        incubacion.fecha_salida = self.fecha_salida_prueba
-        return incubacion
+    def __get_nacimiento(self):
+        nacimiento = Nacimiento()
+        nacimiento.fecha_entrada = self.fecha_entrada_prueba
+        nacimiento.fecha_salida = self.fecha_salida_prueba
+        return nacimiento
             
 # Ejecutamos las pruebas si este script se ejecuta directamente
 if __name__ == '__main__':

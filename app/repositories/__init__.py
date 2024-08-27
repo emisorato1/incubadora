@@ -2,3 +2,5 @@ from .repository import Repository_create, Repository_delete, Repository_get, Re
 from .user_repository import UserRepository
 from .nacimiento_repository import NacimientoRepository
 from .incubacion_repository import IncubacionRepository
+from .nacedora_repository import NacedoraRepository
+from .incubadora_repository import IncubadoraRepository

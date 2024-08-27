@@ -87,7 +87,7 @@ Model <|-- User
 Model <|-- Incubacion
 Model <|-- Incubadora
 Model <|-- Detalle_incubacion
-Model <|-- Datos_sensores_inbadora
+Model <|-- Datos_sensores_incubadora
 Model <|-- Tipo_sensor
 Model <|-- Tipo_huevo
 Model <|-- Nacimiento
@@ -100,7 +100,7 @@ Incubadora "1" o--o "N" Incubacion
 Incubacion "1" o--o "N" Detalle_incubacion
 Incubacion "1" o--o "N" Datos_sensores_incubadora
 Tipo_huevo "1" o--o "N" Detalle_incubacion 
-Tipo_sensor "1" o--o "N" Datos_sensores_inbadora
+Tipo_sensor "1" o--o "N" Datos_sensores_incubadora
 
 User "1" o--o "N" Nacedora
 Nacedora "1" o--o "N" Nacimiento

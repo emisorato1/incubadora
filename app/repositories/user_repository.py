@@ -17,13 +17,11 @@ class UserRepository(Repository_get,Repository_create,Repository_update,Reposito
      def get_by_id(self, id) -> User:
          return db.session.query(self.__model).get(id)
      
-     
      def create(self, entity: User) -> User:
          db.session.add(entity)
          db.session.commit()
          return entity
-     
-     
+         
      def update(self, id, t: User) -> User:
          entity = self.get_by_id(id)
          if entity:
@@ -34,8 +32,7 @@ class UserRepository(Repository_get,Repository_create,Repository_update,Reposito
              db.session.commit()
              return entity
          return None
-     
-     
+         
      def delete(self, id)-> bool:
          user = self.get_by_id(id)
          if user:

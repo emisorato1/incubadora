@@ -2,13 +2,13 @@
 import unittest
 from flask import current_app
 from app import create_app, db
-from app.models.user import User
-from app.services.user_services import UserService
+from app.models.incubadora import Incubadora
+from app.services.incubadora_sevices import IncubadoraService
 
-user_service = UserService()
+incubadora_service = IncubadoraService()
 
 # Definimos la clase de prueba para el modelo User utilizando unittest
-class UserTestCase(unittest.TestCase):
+class IncubadoraTestCase(unittest.TestCase):
     """
     Test User model
     Necesitamos aplicar principios como DRY (Don't Repeat Yourself) y KISS (Keep It Simple, Stupid).
@@ -25,9 +25,8 @@ class UserTestCase(unittest.TestCase):
         # Creación de todas las tablas en la base de datos
         db.create_all()
         
-        self.user_name_prueba = 'nombre'
-        self.password_prueba = '12345'
-        self.role_prueba = 'tecnico'
+        self.modelo_prueba = 'nuevo'
+        
         
     # Limpiamos el entorno de prueba
     def tearDown(self):
@@ -42,60 +41,54 @@ class UserTestCase(unittest.TestCase):
         self.assertIsNotNone(current_app)
     
     # Prueba para verificar que los atributos del usuario se establecen correctamente
-    def test_user(self):
-        user = self.__get_user()        
-        self.assertEqual(user.user_name, self.user_name_prueba)
-        self.assertEqual(user.password, self.password_prueba)   
-        self.assertEqual(user.role, self.role_prueba)
+    def test_incubadora(self):
+        incubadora = self.__get_incubadora()        
+        self.assertEqual(incubadora.modelo, self.modelo_prueba)
     
     # Prueba para verificar que el usuario se guarda correctamente en la base de datos
-    def test_user_save(self):
+    def test_incubadora_save(self):
     
-        user = self.__get_user()
-        user_service.create(user)
+        incubadora = self.__get_incubadora()
+        incubadora_service.create(incubadora)
 
-        self.assertGreaterEqual(user.id, 1)
-        self.assertEqual(user.user_name, self.user_name_prueba)
-        self.assertEqual(user.password, self.password_prueba)   
-        self.assertEqual(user.role, self.role_prueba)
+        self.assertGreaterEqual(incubadora.id, 1)
+        self.assertEqual(incubadora.modelo, self.modelo_prueba)
         
     # Prueba para verificar que el usuario se elimina correctamente de la base de datos
-    def test_user_delete(self):
+    def test_incubadora_delete(self):
         
-        user = self.__get_user()
-        user_service.create(user)
+        incubadora = self.__get_incubadora()
+        incubadora_service.create(incubadora)
 
         # Borrar el usuario
-        user_service.delete(user.id)
-        self.assertIsNone(user_service.get_by_id(1))
+        incubadora_service.delete(incubadora.id)
+        self.assertIsNone(incubadora_service.get_by_id(1))
     
     # Prueba para verificar que se pueden obtener todos los usuarios
-    def test_user_all(self):
+    def test_incubadora_all(self):
     
-        user = self.__get_user()
-        user_service.create(user)
+        incubadora = self.__get_incubadora()
+        incubadora_service.create(incubadora)
 
-        users = user_service.get_all()
-        self.assertGreaterEqual(len(users), 1)
+        incubadoras = incubadora_service.get_all()
+        self.assertGreaterEqual(len(incubadoras), 1)
     
     # Prueba para verificar que se puede encontrar un usuario por su ID
-    def test_user_find(self):
+    def test_incubadora_find(self):
     
-        user = self.__get_user()
-        user_service.create(user)
+        incubadora = self.__get_incubadora()
+        incubadora_service.create(incubadora)
 
-        user_find = user_service.get_by_id(1)
-        self.assertIsNotNone(user_find)
-        self.assertEqual(user_find.id, user.id)
-        self.assertEqual(user_find.role, user.role)
-        
-    def __get_user(self):
-        user = User()
-        user.user_name = self.user_name_prueba
-        user.password = self.password_prueba
-        user.role = self.role_prueba
-        return user
-
+        incubadora_find = incubadora_service.get_by_id(1)
+        self.assertIsNotNone(incubadora_find)
+        self.assertEqual(incubadora_find.id, incubadora.id)
+        self.assertEqual(incubadora_find.modelo, incubadora.modelo)
+    
+    def __get_incubadora(self):
+        incubadora = Incubadora()
+        incubadora.modelo = self.modelo_prueba
+        return incubadora
+            
 # Ejecutamos las pruebas si este script se ejecuta directamente
 if __name__ == '__main__':
     unittest.main()

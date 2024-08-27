@@ -1,9 +1,9 @@
 from flask import jsonify, Blueprint, request
 from app.mapping import NacimientoSchema
-from app.services.nacimiento_services import NacimientoRepository
+from app.services.nacimiento_services import NacimientoService
 
 nacimiento = Blueprint('nacimiento', __name__)
-service = NacimientoRepository()
+service = NacimientoService()
 nacimiento_schema = NacimientoSchema()
 
 """

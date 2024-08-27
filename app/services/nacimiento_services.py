@@ -2,13 +2,13 @@ from app.models import Nacimiento
 from app.repositories.nacimiento_repository import NacimientoRepository
 
 
-class UserService:
+class NacimientoService:
     def __init__(self):
         self.repository = NacimientoRepository()
 
     def get_all(self) -> list[Nacimiento]:
-        Incubaciones= self.repository.get_all()
-        return list(Incubaciones)
+        incubaciones= self.repository.get_all()
+        return list(incubaciones)
     
     def get_by_id(self, id)-> Nacimiento:
         return self.repository.get_by_id(id)

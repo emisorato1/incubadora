@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields, post_load
-from app.models import User
+from app.models.datos_sensores_incubadora import Datos_sensores_incubadora
 
 # Define el esquema (Schema) para la clase Datos_sensores_incubadora
 class Datos_sensores_incubadoraSchema(Schema):
@@ -11,5 +11,5 @@ class Datos_sensores_incubadoraSchema(Schema):
     
     # Método para manejar la carga de datos (deserialización)
     @post_load
-    def make_user(self, data, **kwargs):
-        return User(**data)  # Crea una instancia de la clase Usuario con los datos deserializados
+    def make_datos_sensores_incubadora(self, data, **kwargs):
+        return Datos_sensores_incubadora(**data)  # Crea una instancia de la clase Usuario con los datos deserializados

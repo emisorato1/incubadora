@@ -2,13 +2,13 @@ from app.models import Incubacion
 from app.repositories.incubacion_repository import IncubacionRepository
 
 
-class UserService:
+class IncubacionService:
     def __init__(self):
         self.repository = IncubacionRepository()
 
     def get_all(self) -> list[Incubacion]:
-        Incubaciones= self.repository.get_all()
-        return list(Incubaciones)
+        incubaciones= self.repository.get_all()
+        return list(incubaciones)
     
     def get_by_id(self, id)-> Incubacion:
         return self.repository.get_by_id(id)

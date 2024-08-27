@@ -1,9 +1,9 @@
 from flask import jsonify, Blueprint, request
 from app.mapping import IncubacionSchema
-from app.services.incubacion_services import IncubacionRepository
+from app.services.incubacion_services import IncubacionService
 
 incubacion = Blueprint('incubacion', __name__)
-service = IncubacionRepository()
+service = IncubacionService()
 incubacion_schema = IncubacionSchema()
 
 """

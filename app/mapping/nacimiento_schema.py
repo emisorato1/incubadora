@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields, post_load
-from app.models import User
+from app.models import Nacimiento
 
 # Define el esquema (Schema) para la clase Nacimiento
 class NacimientoSchema(Schema):
@@ -11,5 +11,5 @@ class NacimientoSchema(Schema):
     
     # Método para manejar la carga de datos (deserialización)
     @post_load
-    def make_user(self, data, **kwargs):
-        return User(**data)  # Crea una instancia de la clase Usuario con los datos deserializados
+    def make_nacimiento(self, data, **kwargs):
+        return Nacimiento(**data)  # Crea una instancia de la clase Usuario con los datos deserializados
