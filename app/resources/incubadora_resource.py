@@ -27,8 +27,8 @@ Crea nuevo incubadora
 """
 @incubadora.route('/incubadoras', methods=['POST'])
 def create():
-    usuario = incubadora_schema.load(request.json)
-    resp = incubadora_schema.dump(service.create(usuario))
+    incubadora = incubadora_schema.load(request.json)
+    resp = incubadora_schema.dump(service.create(incubadora))
     return resp, 201
 
 """

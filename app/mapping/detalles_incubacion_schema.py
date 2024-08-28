@@ -2,7 +2,7 @@ from marshmallow import Schema, fields, post_load
 from app.models.detalles_incubacion import Detalles_incubacion
 
 # Define el esquema (Schema) para la clase Detalle_incubacion
-class Detalle_incubacionSchema(Schema):
+class Detalles_incubacionSchema(Schema):
     # Define campos del esquema y establece reglas de validación y serialización
 
     id = fields.Integer(dump_only=True)  # Campo 'id' de tipo Integer (solo para volcado/serialización)

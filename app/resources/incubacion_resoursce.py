@@ -23,15 +23,6 @@ def one(id):
     return resp, 200
 
 """
-Crea nueva incubacion
-"""
-@incubacion.route('/incubaciones', methods=['POST'])
-def create():
-    usuario = incubacion_schema.load(request.json)
-    resp = incubacion_schema.dump(service.create(usuario))
-    return resp, 201
-
-"""
 Elimina una incubacion existente
 """
 @incubacion.route('/incubaciones/<int:id>', methods=['DELETE'])

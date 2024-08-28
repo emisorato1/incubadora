@@ -27,8 +27,8 @@ Crea nueva nacedora
 """
 @nacedora.route('/nacedoras', methods=['POST'])
 def create():
-    usuario = nacedora_schema.load(request.json)
-    resp = nacedora_schema.dump(service.create(usuario))
+    nacedora = nacedora_schema.load(request.json)
+    resp = nacedora_schema.dump(service.create(nacedora))
     return resp, 201
 
 """

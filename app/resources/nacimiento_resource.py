@@ -23,15 +23,6 @@ def one(id):
     return resp, 200
 
 """
-Crea nuevo nacimiento
-"""
-@nacimiento.route('/nacimientos', methods=['POST'])
-def create():
-    usuario = nacimiento_schema.load(request.json)
-    resp = nacimiento_schema.dump(service.create(usuario))
-    return resp, 201
-
-"""
 Elimina un nacimiento existente
 """
 @nacimiento.route('/nacimientos/<int:id>', methods=['DELETE'])
