@@ -1,10 +1,10 @@
 from flask import jsonify, Blueprint, request
-from app.mapping import Tipo_huevoSchema
-from app.services.tipo_huevo_services import Tipo_huevoService
+from app.mapping import TipoHuevoSchema
+from app.services.tipo_huevo_services import TipoHuevoService
 
 tipo_huevo = Blueprint('Tipo_huevo', __name__)
-service = Tipo_huevoService()
-tipo_huevo_schema = Tipo_huevoSchema()
+service = TipoHuevoService()
+tipo_huevo_schema = TipoHuevoSchema()
 
 """
 Obtiene todos los Tipo_huevos

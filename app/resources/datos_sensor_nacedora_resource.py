@@ -1,10 +1,10 @@
 from flask import jsonify, Blueprint, request
-from app.mapping import Datos_sensores_nacedoraSchema
-from app.services.datos_sensores_nacedora_services import Datos_sensores_nacedoraService
+from app.mapping import DatosSensorNacedoraSchema
+from app.services.datos_sensor_nacedora_services import DatosSensorNacedoraService
 
 datos_sensores_nacedora = Blueprint('datos_sensores_nacedora', __name__)
-service = Datos_sensores_nacedoraService()
-datos_sensores_nacedora_schema = Datos_sensores_nacedoraSchema()
+service = DatosSensorNacedoraService()
+datos_sensores_nacedora_schema = DatosSensorNacedoraSchema()
 
 """
 Obtiene todos los datos_sensores_nacedoras

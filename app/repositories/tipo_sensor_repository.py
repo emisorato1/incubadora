@@ -1,24 +1,24 @@
-from app.models import Tipo_sensor
+from app.models import TipoSensor
 from app import db
 from .repository import Repository_get, Repository_create, Repository_update, Repository_delete
 
 
-class Tipo_sensorRepository(Repository_get,Repository_create,Repository_update,Repository_delete):  
+class TipoSensorRepository(Repository_get,Repository_create,Repository_update,Repository_delete):  
      def __init__(self):
-         self.__model = Tipo_sensor
+         self.__model = TipoSensor
 
-     def get_all(self) -> list[Tipo_sensor]:
+     def get_all(self) -> list[TipoSensor]:
         return db.session.query(self.__model).all()
         
-     def get_by_id(self, id) -> Tipo_sensor:
+     def get_by_id(self, id) -> TipoSensor:
          return db.session.query(self.__model).get(id)
      
-     def create(self, entity: Tipo_sensor) -> Tipo_sensor:
+     def create(self, entity: TipoSensor) -> TipoSensor:
          db.session.add(entity)
          db.session.commit()
          return entity
          
-     def update(self, id, t: Tipo_sensor) -> Tipo_sensor:
+     def update(self, id, t: TipoSensor) -> TipoSensor:
          entity = self.get_by_id(id)
          if entity:
              entity.tipo_sensor=t.tipo_sensor

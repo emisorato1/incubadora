@@ -3,9 +3,9 @@ from .incubacion import Incubacion
 from .nacimiento import Nacimiento
 from .incubadora import Incubadora
 from .nacedora import Nacedora
-from .tipo_huevo import Tipo_huevo
-from .tipo_sensor import Tipo_sensor
-from .detalles_nacimiento import Detalles_nacimiento
-from .detalles_incubacion import Detalles_incubacion
-from .datos_sensores_incubadora import Datos_sensores_incubadora
-from .datos_sensores_nacedora import Datos_sensores_nacedora
+from .tipo_huevo import TipoHuevo
+from .tipo_sensor import TipoSensor
+from .detalles_nacimiento import DetallesNacimiento
+from .detalles_incubacion import DetallesIncubacion
+from .datos_sensor_incubadora import DatosSensorIncubadora
+from .datos_sensor_nacedora import DatosSensorNacedora

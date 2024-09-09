@@ -2,10 +2,10 @@
 import unittest
 from flask import current_app
 from app import create_app, db
-from app.models.tipo_sensor import Tipo_sensor
-from app.services.tipo_sensor_services import Tipo_sensorService
+from app.models.tipo_sensor import TipoSensor
+from app.services.tipo_sensor_services import TipoSensorService
 
-tipo_sensor_service = Tipo_sensorService()
+tipo_sensor_service = TipoSensorService()
 
 # Definimos la clase de prueba para el modelo User utilizando unittest
 class Tipo_sensorTestCase(unittest.TestCase):
@@ -83,7 +83,7 @@ class Tipo_sensorTestCase(unittest.TestCase):
         self.assertEqual(tipo_sensor_find.tipo_sensor, tipo_sensor.tipo_sensor)
     
     def __get_tipo_sensor(self):
-        tipo_sensor = Tipo_sensor()
+        tipo_sensor = TipoSensor()
         tipo_sensor.tipo_sensor = self.tipo_sensor_prueba
         return tipo_sensor
             

@@ -20,10 +20,10 @@ class Nacimiento(db.Model):
     nacedora = db.relationship('Nacedora', back_populates='nacimiento')
     
     # Definición de la relación "uno a muchos" con detalles_nacimiento
-    detalles_nacimiento = db.relationship('Detalles_nacimiento', back_populates='nacimiento')
+    detalles_nacimiento = db.relationship('DetallesNacimiento', back_populates='nacimiento')
 
     # Definición de la relación "uno a muchos" con datos_sensores_nacedora
-    datos_sensores_nacedora = db.relationship('Datos_sensores_nacedora', back_populates='nacimiento')
+    datos_sensor_nacedora = db.relationship('DatosSensorNacedora', back_populates='nacimiento')
     
     def __init__(self, fecha_entrada: datetime = None, fecha_salida: datetime = None, user: int = None, nacedora: int = None):
         self.fecha_entrada = fecha_entrada

@@ -4,3 +4,7 @@ from .incubacion_resoursce import incubacion
 from .nacimiento_resource import nacimiento
 from .nacedora_resource import nacedora
 from .incubadora_resource import incubadora
+from .datos_sensor_incubadora_resource import datos_sensores_incubadora
+from .datos_sensor_nacedora_resource import datos_sensores_nacedora
+from .detalles_incubacion_resource import detalles_incubacion
+from .detalles_nacimiento_resource import detalles_nacimiento

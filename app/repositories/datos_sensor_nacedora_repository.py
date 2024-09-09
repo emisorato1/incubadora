@@ -1,24 +1,24 @@
-from app.models import Datos_sensores_nacedora
+from app.models import DatosSensorNacedora
 from app import db
 from .repository import Repository_get, Repository_create, Repository_update, Repository_delete
 
 
-class Datos_sensores_nacedoraRepository(Repository_get,Repository_create,Repository_update,Repository_delete):  
+class DatosSensorNacedoraRepository(Repository_get,Repository_create,Repository_update,Repository_delete):  
      def __init__(self):
-         self.__model = Datos_sensores_nacedora
+         self.__model = DatosSensorNacedora
 
-     def get_all(self) -> list[Datos_sensores_nacedora]:
+     def get_all(self) -> list[DatosSensorNacedora]:
         return db.session.query(self.__model).all()
         
-     def get_by_id(self, id) -> Datos_sensores_nacedora:
+     def get_by_id(self, id) -> DatosSensorNacedora:
          return db.session.query(self.__model).get(id)
      
-     def create(self, entity: Datos_sensores_nacedora) -> Datos_sensores_nacedora:
+     def create(self, entity: DatosSensorNacedora) -> DatosSensorNacedora:
          db.session.add(entity)
          db.session.commit()
          return entity
          
-     def update(self, id, t: Datos_sensores_nacedora) -> Datos_sensores_nacedora:
+     def update(self, id, t: DatosSensorNacedora) -> DatosSensorNacedora:
          entity = self.get_by_id(id)
          if entity:
              entity.valor=t.valor

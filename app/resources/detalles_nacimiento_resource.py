@@ -1,10 +1,10 @@
 from flask import jsonify, Blueprint, request
-from app.mapping import Detalles_nacimientoSchema
-from app.services.detalles_nacimiento_services import Detalles_nacimientoService
+from app.mapping import DetallesNacimientoSchema
+from app.services.detalles_nacimiento_services import DetallesNacimientoService
 
 detalles_nacimiento = Blueprint('detalles_nacimiento', __name__)
-service = Detalles_nacimientoService()
-detalles_nacimiento_schema = Detalles_nacimientoSchema()
+service = DetallesNacimientoService()
+detalles_nacimiento_schema = DetallesNacimientoSchema()
 
 """
 Obtiene todos los detalles_nacimientos

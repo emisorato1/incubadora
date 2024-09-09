@@ -19,10 +19,10 @@ class Incubacion(db.Model):
     incubadora = db.relationship('Incubadora', back_populates='incubacion')
     
     # Definición de la relación "uno a muchos" con detalles_incubacion
-    detalles_incubacion = db.relationship('Detalles_incubacion', back_populates='incubacion')
+    detalles_incubacion = db.relationship('DetallesIncubacion', back_populates='incubacion')
     
     # Definición de la relación "uno a muchos" con datos_sensores_incubadora
-    datos_sensores_incubadora = db.relationship('Datos_sensores_incubadora', back_populates='incubacion')
+    datos_sensor_incubadora = db.relationship('DatosSensorIncubadora', back_populates='incubacion')
     
     def __init__(self, fecha_entrada: datetime = None, fecha_salida: datetime = None, user: int = None, incubadora: int = None):
         self.fecha_entrada = fecha_entrada

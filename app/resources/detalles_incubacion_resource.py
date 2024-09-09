@@ -1,10 +1,10 @@
 from flask import jsonify, Blueprint, request
-from app.mapping.detalles_incubacion_schema import Detalles_incubacionSchema
-from app.services.detalles_incubacion_services import Detalles_incubacionService
+from app.mapping.detalles_incubacion_schema import DetallesIncubacionSchema
+from app.services.detalles_incubacion_services import DetallesIncubacionService
 
 detalles_incubacion = Blueprint('detalles_incubacion', __name__)
-service = Detalles_incubacionService()
-detalles_incubacion_schema = Detalles_incubacionSchema()
+service = DetallesIncubacionService()
+detalles_incubacion_schema = DetallesIncubacionSchema()
 
 """
 Obtiene todos los detalles_incubaciones

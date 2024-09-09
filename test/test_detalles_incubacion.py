@@ -2,10 +2,10 @@
 import unittest
 from flask import current_app
 from app import create_app, db
-from app.models.detalles_incubacion import Detalles_incubacion
-from app.services.detalles_incubacion_services import Detalles_incubacionService
+from app.models.detalles_incubacion import DetallesIncubacion
+from app.services.detalles_incubacion_services import DetallesIncubacionService
 
-detalles_incubacion_service = Detalles_incubacionService()
+detalles_incubacion_service = DetallesIncubacionService()
 
 # Definimos la clase de prueba para el modelo User utilizando unittest
 class Detalles_incubacionTestCase(unittest.TestCase):
@@ -87,7 +87,7 @@ class Detalles_incubacionTestCase(unittest.TestCase):
         self.assertEqual(detalles_incubacion.cant_huevos_inicial, self.cant_huevos_inicial_prueba)
     
     def __get_detalles_incubacion(self):
-        detalles_incubacion = Detalles_incubacion()
+        detalles_incubacion = DetallesIncubacion()
         detalles_incubacion.cant_huevos_inicial = self.cant_huevos_inicial_prueba
         detalles_incubacion.cant_huevos_final = self.cant_huevos_final_prueba
         return detalles_incubacion

@@ -3,3 +3,9 @@ from .incubacion_services import IncubacionService
 from .nacimiento_services import NacimientoService
 from .incubadora_sevices import IncubadoraService
 from .nacedora_services import NacedoraService
+from .datos_sensor_incubadora_services import DatosSensorIncubadoraService
+from .datos_sensor_nacedora_services import DatosSensorNacedoraService
+from .detalles_incubacion_services import DetallesIncubacionService
+from .detalles_nacimiento_services import DetallesNacimientoService
+from .tipo_huevo_services import TipoHuevoService
+from .tipo_sensor_services import TipoSensorService

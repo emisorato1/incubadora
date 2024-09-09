@@ -1,22 +1,22 @@
-from app.models import Detalles_nacimiento
-from app.repositories.detalles_nacimiento_repository import Detalles_nacimientoRepository
+from app.models import DetallesNacimiento
+from app.repositories.detalles_nacimiento_repository import DetallesNacimientoRepository
 
 
-class Detalles_nacimientoService:
+class DetallesNacimientoService:
     def __init__(self):
-        self.repository = Detalles_nacimientoRepository()
+        self.repository = DetallesNacimientoRepository()
 
-    def get_all(self) -> list[Detalles_nacimiento]:
+    def get_all(self) -> list[DetallesNacimiento]:
         detalles_nacimientos= self.repository.get_all()
         return list(detalles_nacimientos)
     
-    def get_by_id(self, id)-> Detalles_nacimiento:
+    def get_by_id(self, id)-> DetallesNacimiento:
         return self.repository.get_by_id(id)
 
-    def create(self, entity: Detalles_nacimiento)-> Detalles_nacimiento:
+    def create(self, entity: DetallesNacimiento)-> DetallesNacimiento:
         return self.repository.create(entity)
 
-    def update(self, id, Detalles_nacimiento) -> Detalles_nacimiento:
+    def update(self, id, Detalles_nacimiento) -> DetallesNacimiento:
         return self.repository.update(id, Detalles_nacimiento)
 
     def delete(self, id)->bool:

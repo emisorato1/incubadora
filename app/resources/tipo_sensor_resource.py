@@ -1,10 +1,10 @@
 from flask import jsonify, Blueprint, request
-from app.mapping import Tipo_sensorSchema
-from app.services.tipo_sensor_services import Tipo_sensorService
+from app.mapping import TipoSensorSchema
+from app.services.tipo_sensor_services import TipoSensorService
 
 tipo_sensor = Blueprint('Tipo_sensor', __name__)
-service = Tipo_sensorService()
-tipo_sensor_schema = Tipo_sensorSchema()
+service = TipoSensorService()
+tipo_sensor_schema = TipoSensorSchema()
 
 """
 Obtiene todos los Tipo_sensores

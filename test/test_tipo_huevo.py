@@ -2,10 +2,10 @@
 import unittest
 from flask import current_app
 from app import create_app, db
-from app.models.tipo_huevo import Tipo_huevo
-from app.services.tipo_huevo_services import Tipo_huevoService
+from app.models.tipo_huevo import TipoHuevo
+from app.services.tipo_huevo_services import TipoHuevoService
 
-tipo_huevo_service = Tipo_huevoService()
+tipo_huevo_service = TipoHuevoService()
 
 # Definimos la clase de prueba para el modelo User utilizando unittest
 class Tipo_huevoTestCase(unittest.TestCase):
@@ -83,7 +83,7 @@ class Tipo_huevoTestCase(unittest.TestCase):
         self.assertEqual(tipo_huevo_find.tipo_huevo, tipo_huevo.tipo_huevo)
     
     def __get_tipo_huevo(self):
-        tipo_huevo = Tipo_huevo()
+        tipo_huevo = TipoHuevo()
         tipo_huevo.tipo_huevo = self.tipo_huevo_prueba
         return tipo_huevo
             

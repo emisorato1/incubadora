@@ -2,10 +2,10 @@
 import unittest
 from flask import current_app
 from app import create_app, db
-from app.models.detalles_nacimiento import Detalles_nacimiento
-from app.services.detalles_nacimiento_services import Detalles_nacimientoService
+from app.models.detalles_nacimiento import DetallesNacimiento
+from app.services.detalles_nacimiento_services import DetallesNacimientoService
 
-detalles_nacimiento_service = Detalles_nacimientoService()
+detalles_nacimiento_service = DetallesNacimientoService()
 
 # Definimos la clase de prueba para el modelo User utilizando unittest
 class Detalles_nacimientoTestCase(unittest.TestCase):
@@ -87,7 +87,7 @@ class Detalles_nacimientoTestCase(unittest.TestCase):
         self.assertEqual(detalles_nacimiento.cant_huevos_inicial, self.cant_huevos_inicial_prueba)
     
     def __get_detalles_nacimiento(self):
-        detalles_nacimiento = Detalles_nacimiento()
+        detalles_nacimiento = DetallesNacimiento()
         detalles_nacimiento.cant_huevos_inicial = self.cant_huevos_inicial_prueba
         detalles_nacimiento.cant_huevos_final = self.cant_huevos_final_prueba
         return detalles_nacimiento

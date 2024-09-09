@@ -1,24 +1,24 @@
-from app.models import Detalles_incubacion
+from app.models import DetallesIncubacion
 from app import db
 from .repository import Repository_get, Repository_create, Repository_update, Repository_delete
 
 
-class Detalles_incubacionRepository(Repository_get,Repository_create,Repository_update,Repository_delete):  
+class DetallesIncubacionRepository(Repository_get,Repository_create,Repository_update,Repository_delete):  
      def __init__(self):
-         self.__model = Detalles_incubacion
+         self.__model = DetallesIncubacion
 
-     def get_all(self) -> list[Detalles_incubacion]:
+     def get_all(self) -> list[DetallesIncubacion]:
         return db.session.query(self.__model).all()
         
-     def get_by_id(self, id) -> Detalles_incubacion:
+     def get_by_id(self, id) -> DetallesIncubacion:
          return db.session.query(self.__model).get(id)
      
-     def create(self, entity: Detalles_incubacion) -> Detalles_incubacion:
+     def create(self, entity: DetallesIncubacion) -> DetallesIncubacion:
          db.session.add(entity)
          db.session.commit()
          return entity
          
-     def update(self, id, t: Detalles_incubacion) -> Detalles_incubacion:
+     def update(self, id, t: DetallesIncubacion) -> DetallesIncubacion:
          entity = self.get_by_id(id)
          if entity:
              entity.cant_huevos_inicial=t.cant_huevos_inicial

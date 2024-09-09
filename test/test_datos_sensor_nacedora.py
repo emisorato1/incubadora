@@ -2,8 +2,8 @@
 import unittest
 from flask import current_app
 from app import create_app, db
-from app.models.datos_sensores_nacedora import Datos_sensores_nacedora
-from app.services.datos_sensores_nacedora_services import Datos_sensores_nacedoraService
+from app.models.datos_sensor_nacedora import DatosSensorNacedora
+from app.services.datos_sensor_nacedora_services import Datos_sensores_nacedoraService
 from datetime import datetime
 
 datos_sensores_nacedora_service = Datos_sensores_nacedoraService()
@@ -87,7 +87,7 @@ class Datos_sensores_nacedoraTestCase(unittest.TestCase):
         self.assertEqual(datos_sensores_nacedora.dia, self.dia_prueba)
     
     def __get_datos_sensores_nacedora(self):
-        datos_sensores_nacedora = Datos_sensores_nacedora()
+        datos_sensores_nacedora = DatosSensorNacedora()
         datos_sensores_nacedora.valor = self.valor_prueba
         datos_sensores_nacedora.dia = self.dia_prueba
         return datos_sensores_nacedora
